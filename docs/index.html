@@ -11,6 +11,53 @@
       font-size: 16px;
       margin-bottom: 20px;
     }
+
+    #details table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    #details th,
+    #details td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    #contents ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #contents li {
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      color: #1623d6;
+      margin-top: 20px;
+    }
+
+    p {
+      text-align: justify;
+      margin-bottom: 10px;
+    }
+
+    #network-features table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    #network-features th,
+    #network-features td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
   </style>
 </header>
 
@@ -19,70 +66,131 @@
     <h1>Deploying LoRaWAN-based IoT Solutions for Enhanced Sustainability and Efficiency in Sugarcane Farming</h1>
   </div>
 
-  <div id="authors">
-    <h4>Authors:</h4>
+  <div id="details">
+    <table>
+      <tbody>
+        <tr>
+          <th rowspan="2">Authors:</th>
+          <td>Bruce Belson</td>
+        </tr>
+        <tr>
+          <td>Eric Wang</td>
+        </tr>
+        <tr>
+          <th rowspan="1">Affiliation:</th>
+          <td>Engineering Department, James Cook University, Cairns, Australia</td>
+        </tr>
+        <!-- <tr>
+          <th rowspan="1">Project start date:</th>
+          <td>August 2023</td>
+        </tr> -->
+        <tr>
+          <th rowspan="2">Conference:</th>
+          <td>TropAg 2025</td>
+        </tr>
+        <tr>
+          <td>11-13 November 2025 Brisbane, Queensland Australia</td>
+        </tr>
+        <tr>
+          <th rowspan="1">Poster Number:</th>
+          <td>131</td>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="contents">
+    <h2>Contents:</h2>
     <ul>
-      <li>Bruce Belson</li>
-      <li>Eric Wang</li>
+      <li><a href="131-Bruce Belson.pdf" target="_blank">Poster</a></li>
+      <li><a href="#Abstract">Abstract</a></li>
+      <li><a href="#Introduction">Introduction</a></li>
+      <li><a href="#Methodology">Methodology</a></li>
+      <li><a href="#Results">Results and Discussion</a></li>
+      <li><a href="#Conclusion">Conclusion</a></li>
+      <li><a href="#References">References</a></li>
     </ul>
   </div>
 
-  <div id="affiliations">
-    <ul>
-      <li>Engineering Department, James Cook University, Cairns, Australia</li>
-    </ul>
+  <div id="Abstract" name="Abstract">
+    <h2>Abstract:</h2>
 
-    <div id="dates">
-      <h4>Dates:</h4>
-      <p>August 2023 - November 2025</p>
+    <p>Efficient water management and real-time environmental monitoring are crucial to achieving sustainable
+      agriculture, enhancing water quality, and responding to climate-related challenges, especially in
+      water-intensive crops such as sugarcane. This ongoing study describes the deployment, validation,
+      and continuous operation of a robust, user-friendly, and cost-effective LoRaWAN (Long Range Wide Area Network)
+      sensor network tailored specifically for Australian sugarcane farms.</p>
+
+    <p>We developed an integrated IoT solution that includes reliable sensors, gateways, and streamlined registration
+      processes designed explicitly for farmers. Sensor nodes, based on the robust Dragino SN50v3-LB units and
+      equipped with temperature and humidity sensors, were deployed strategically within sugarcane fields, with a
+      predicted battery life of 5-6 years. To maintain effective line-of-sight communication essential for LoRaWAN,
+      sensors were mounted on flexible, breakaway PVC poles at 3.5 meters above ground, overcoming the challenges
+      posed
+      by dense sugarcane growth.</p>
+
+    <p>An on-farm deployment has been running successfully at a sugarcane farm on the Atherton Tablelands, with sensor
+      nodes placed up to 1.9 kilometres from a central gateway (MultiTech Conduit® IP67 Base Station). Data captured
+      is transmitted in real-time and monitored via an intuitive smartphone application, providing immediate feedback
+      on environmental conditions.</p>
+
+    <p>Preliminary results indicate that the LoRaWAN system not only simplifies deployment and operation but also
+      significantly enhances the precision of monitoring essential agricultural parameters, while maintaining privacy.
+      This innovative approach improves farmers’ ability to manage resources sustainably, optimize crop yields, reduce
+      run-off, and increase resilience to climate variability.</p>
+
+    <p>Our findings demonstrate the potential of LoRaWAN technology as a scalable and sustainable solution for modern
+      agriculture, promoting better resource management practices and facilitating a practical response to the urgent
+      need for climate-smart agricultural systems. We plan to showcase operational devices at the conference, enabling
+      hands-on demonstration and deeper insight into their deployment and practical application.</p>
+
+  </div>
+
+  <div id="Introduction" name="Introduction">
+    <h2>Introduction:</h2>
+    <p>Sugarcane farming is a significant agricultural activity in Australia, particularly in Queensland. However,
+      traditional farming practices often lead to inefficient water usage and environmental degradation. The
+      integration of IoT technologies, specifically LoRaWAN, offers a promising solution to these challenges by
+      enabling real-time monitoring and data-driven decision-making.</p>
+
+    <p>By leveraging the capabilities of LoRaWAN, farmers can gain valuable insights into soil moisture levels, weather
+      conditions, and crop health, allowing for more precise irrigation and resource management.</p>
+
+    <h3>LoRaWAN</h3>
+    <p>LoRaWAN (Long Range Wide Area Network) is a low-power, wide-area networking protocol designed for IoT devices.
+      It enables long-range communication with minimal power consumption, making it ideal for agricultural applications
+      where devices may be spread over large areas and require extended battery life.</p>
+
+
+    <div id="network-features">
+      <table>
+        <tr>
+          <th>Network</th>
+          <th>Factors</th>
+        </tr>
+        <tr>
+          <td>Ethernet</td>
+          <td>Wired connection, high speed. Requires in-ground cabling, expensive to deploy, inflexible. Limited range
+            (100m per run.)</td>
+        </tr>
+        <tr>
+          <td>WiFi</td>
+          <td>Wireless connection, moderate range. Higher power consumption, limited range (&lt; 100m), potential
+            interference.</td>
+        </tr>
+        <tr>
+          <td>Cellular networks (4G, 5G)</td>
+          <td>Wireless connection, wide coverage. Higher power consumption, potential latency issues, variable costs.
+          </td>
+        </tr>
+        <tr>
+          <td>LoRaWAN</td>
+          <td>Wireless connection, long range. Low power consumption, suitable for remote areas, limited bandwidth.</td>
+        </tr>
+
+      </table>
+
     </div>
 
-    <div id="conference">
-      <h3>Conference:</h3>
-      <p>TropAg 2025 - Poster 131</p>
-    </div>
-
-    <div id="Abstract">
-      <h2>Abstract:</h2>
-
-      <p>Efficient water management and real-time environmental monitoring are crucial to achieving sustainable
-        agriculture,
-        enhancing water quality, and responding to climate-related challenges, especially in water-intensive crops such
-        as
-        sugarcane. This ongoing study describes the deployment, validation, and continuous operation of a robust,
-        user-friendly, and cost-effective LoRaWAN (Long Range Wide Area Network) sensor network tailored specifically
-        for
-        Australian sugarcane farms.</p>
-
-      <p>We developed an integrated IoT solution that includes reliable sensors, gateways, and streamlined registration
-        processes designed explicitly for farmers. Sensor nodes, based on the robust Dragino SN50v3-LB units and
-        equipped
-        with temperature and humidity sensors, were deployed strategically within sugarcane fields, with a predicted
-        battery life
-        of 5-6 years. To maintain effective line-of-sight communication essential for LoRaWAN, sensors were mounted on
-        flexible, breakaway PVC poles at 3.5 meters above ground, overcoming the challenges posed by dense sugarcane
-        growth.</p>
-
-      <p>An on-farm deployment has been running successfully at a sugarcane farm on the Atherton Tablelands, with sensor
-        nodes placed up to 1.9 kilometres from a central gateway (MultiTech Conduit® IP67 Base Station). Data captured
-        is
-        transmitted in real-time and monitored via an intuitive smartphone application, providing immediate feedback on
-        environmental conditions.</p>
-
-      <p>Preliminary results indicate that the LoRaWAN system not only simplifies deployment and operation but also
-        significantly enhances the precision of monitoring essential agricultural parameters, while maintaining privacy.
-        This innovative approach improves farmers’ ability to manage resources sustainably, optimize crop yields, reduce
-        run-off,
-        and increase resilience to climate variability.</p>
-
-      <p>Our findings demonstrate the potential of LoRaWAN technology as a scalable and sustainable solution for modern
-        agriculture, promoting better resource management practices and facilitating a practical response to the urgent
-        need
-        for climate-smart agricultural systems. We plan to showcase operational devices at the conference, enabling
-        hands-on
-        demonstration and deeper insight into their deployment and practical application.</p>
-
-    </div>
 </body>
 
 </html>
