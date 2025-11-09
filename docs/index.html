@@ -64,9 +64,8 @@
           <li><a href="#lorawan_sensor_nodes">LoRaWAN Sensor Nodes</a></li>
           <li><a href="#deploying_sensors">Sensor Deployment</a></li>
           <li><a href="#connect_to_network">Connecting to the LoRaWAN Network</a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
+          <li><a href="#ttn_network">TTN Network</a></li>
+          <li><a href="#dashboard">Dashboard Application</a></li>
         </ul>
       </li>
       <li><a href="#Results">Results and Discussion</a></li>
@@ -75,13 +74,18 @@
     </ul>
   </div>
 
-  <div id="pages">
-    <h2>Pages</h2>
+  <div id="other">
+    <h2>Other Pages</h2>
     <ul>
       <li><a href="131-Bruce Belson.pdf" target="_blank">Poster</a></li>
       <li><a href="networks.html">Network Overview</a></li>
-      <li><a href="lorawan.html">LoRaWAN Overview</a></li>
+      <!-- <li><a href="lorawan.html">LoRaWAN Overview</a></li> -->
       <li><a href="sensor_costs.html">Sensor Node Costs</a></li>
+      <li><a href="./notes/firmware.md">Firmware Notes</a></li>
+      <li><a href="./data/static_data_redacted.csv">Static Data</a></li>
+      <li><a href="./data/65cad86c1eacd861b217e7a7-65d2bb6e91885514259b6bf8-1-1733275646289(1)-normalised.csv">Example
+          Raw Data</a></li>
+      <li><a href="./data/losant_normalised_store.csv">Collated Processed Data</a></li>
     </ul>
   </div>
 
@@ -137,8 +141,10 @@
         applications
         where devices may be spread over large areas and require extended battery life.</p>
 
-      <p>For more details see <a href="networks.html">Network Overview</a> and <a href="lorawan.html">LoRaWAN
-          Overview</a>.</p>
+      <p>For more details of the reasoning for its selection as the network protocol
+        see <a href="networks.html">Network Overview</a>.</p>
+      <!-- and <a href="lorawan.html">LoRaWAN Overview</a> -->
+
     </div>
 
   </div>
@@ -240,8 +246,17 @@
       <div class="caption">Figure 8: Sensor Node Mounted on PVC Pole</div>
 
       <p>The flexible poles were designed to break away safely if struck by farm machinery, minimizing the risk of
-        damage to both the equipment and the sensor nodes.</p>
+        damage to both the equipment and the sensor nodes.
+        The flexible poles were also designed to be easily replaceable, allowing for quick repairs in the event of
+        damage.</p>
 
+      <p>The sensor is screwed on to a 3d-printed bracket, which in turn is bolted to the PVC pole.</p>
+
+      <img src="images/sensor_on_pole.jpg" alt="Sensor Node Attached to Pole" style="width:600px;height:auto;">
+      <div class="caption">Figure 9: Sensor Node Attached to PVC Pole</div>
+
+      <img src="images/bracket.png" alt="3D-Printed Bracket for Sensor Node" style="width:300px;height:auto;">
+      <div class="caption">Figure 10: 3D-Printed Bracket for Sensor Node</div>
 
       <p>The costs for each sensor node deployment were kept low by using readily available materials and components.
         A list of the components used, along with their costs at the time of purchase, is provided in the table below.
@@ -252,7 +267,7 @@
           <thead>
             <tr>
               <th>Component</th>
-              <th>URL</th>
+              <th>Details</th>
               <th style="text-align:right">Cost (AUD)</th>
             </tr>
           </thead>
@@ -265,7 +280,7 @@
             </tr>
             <tr>
               <td>Temperature and Humidity Sensor</td>
-              <td><a href="https://www.aliexpress.com/item/1005005142437608.html" target="_blank">SHT31</a></td>
+              <td>SHT31 GY-SHT31-D</td>
               <td style="text-align:right">3.89</td>
             </tr>
             <tr>
@@ -294,7 +309,7 @@
               <td style="text-align:right">3.30</td>
             </tr>
             <tr>
-              <td>3d-printed Mounting Bracket</td>
+              <td>3d-Printed Mounting Bracket</td>
               <td><a href="https://blog.prusa3d.com/how-to-calculate-printing-costs_38650/" target="_blank">How to
                   calculate 3D printing costs?</a> </td>
               <td style="text-align:right">1.91</td>
@@ -332,7 +347,7 @@
         <li>Secure all connections and ensure the sensor is properly positioned.</li>
       </ol>
       <img src="images/deployment-photos.jpg" alt="Sensor Deployment Photos" style="width:600px;height:auto;">
-      <div class="caption">Figure 9: Sensor Deployment</div>
+      <div class="caption">Figure 11: Sensor Deployment</div>
     </div>
 
     <div id="connect_to_network" name="connect_to_network" class="subsection">
@@ -346,8 +361,9 @@
         <li>Mobile App (custom monitoring app for farmers)</li>
       </ul>
 
-      <img src="images/registration_app.png" alt="Android App Registration" style="width:600px;height:auto;">
-      <div class="caption">Figure 10: Android App Registration</div>
+      <img src="images/registration_app_boxed.png" alt="Android App for Sensor Registration"
+        style="width:450px;height:auto;">
+      <div class="caption">Figure 12: Android App for Sensor Registration</div>
 
       <p>The app guides the user through a single-step registration process, and provides the following functionality:
       </p>
@@ -357,13 +373,269 @@
         <li>Notes the precise location of the node using the device's GPS functionality.</li>
         <li>Allows the user to add any further notes or information about the node as needed.</li>
         <li>Registers the node with the LoRaWAN network using the gateway's management interface.</li>
-        <li>If the Internet network is inaccessible, the app allows for offline registration and later synchronization.
+        <li>If the Internet network is inaccessible, the app adds the sensor to a queue for
+          offline registration and later synchronization.
         </li>
       </ul>
 
       <p>Once deployed, the node immediately begins transmitting data to the gateway,
-        which relayed the information to the cloud platform for real-time monitoring and analysis.</p>
+        which relays the information to the cloud platform for real-time monitoring and analysis.</p>
+    </div>
 
+    <div id="ttn_network" name="ttn_network" class="subsection">
+      <h3>The Things Network (TTN)</h3>
+      <p>The Things Network (TTN) is a global, open-source LoRaWAN network that provides connectivity for IoT devices.
+        It offers a robust and scalable platform for managing LoRaWAN networks, making it an ideal choice for our
+        agricultural deployment.</p>
+
+      <p>In this project, TTN was used as the LoRaWAN Network Server, handling the communication between the sensor
+        nodes and the cloud platform. TTN's user-friendly interface allowed for easy management of the network,
+        including device registration, data routing, and monitoring.
+        For more information on TTN and its capabilities, refer to the official <a
+          href="https://www.thethingsnetwork.org/">TTN website</a>.</p>
+
+      <h4>Security Considerations</h4>
+
+      <p>While TTN offers robust security and privacy features, it requires continuous cloud connectivity for optimal
+        performance.
+        If connectivity is interrupted, data transmission may be delayed until the connection is restored.
+        In order to recover from interruptions, the system can implement a buffering mechanism to store data locally
+        until the connection is re-established.</p>
+
+      <p>
+        Furthermore, as a public network, TTN may not fully meet specific privacy requirements for sensitive
+        agricultural data.
+        LoRaWAN deployments can make use of private LoRaWAN networks to enhance data security and privacy.
+        The open source LoRaWAN server software can be deployed on-premises or in a private cloud,
+        giving organizations full control over their data and network.
+        We are able to establish a private network using this software on
+        a <a href="https://youtu.be/7UlqLtl8GcU?si=rZaUc8LEm4DMhhEF">Raspberry Pi 5 platform</a>, ensuring that the
+        agricultural data remains secure and compliant with privacy regulations,
+        and continues to accumulate data even during internet outages.
+      </p>
+
+    </div>
+
+    <div id="dashboard" name="dashboard" class="subsection">
+      <h3>Dashboard Application</h3>
+      <p>A custom dashboard application was developed to provide farmers with real-time access to the data collected
+        by the LoRaWAN sensor nodes. The dashboard offers an intuitive interface for monitoring environmental
+        conditions, including temperature and humidity levels as well as signal strength, across the farm.</p>
+
+      <img src="images/dashboard_app_boxed.png" alt="Dashboard Application on Mobile Device"
+        style="width:450px;height:auto;">
+      <div class="caption">Figure 13: Dashboard Application on Mobile Device</div>
+
+      <p>The dashboard application includes features such as data visualization, alerts for critical conditions, and
+        historical data analysis.
+        It is accessible via both web browsers and mobile devices, ensuring that farmers can monitor their fields from
+        anywhere at any time.</p>
+
+    </div>
+
+  </div>
+
+  <div id="Results" name="Results" class="section">
+    <h2>Results and Discussion</h2>
+
+    <p>The network was set up with 4 sensor nodes, each transmitting every 20 minutes, and then left unattended for its
+      18 months of operation. The nodes were unaffected by severe weather and flooding. When knocked over by harvesters,
+      the poles were easily replaced in position, without any data loss.
+    </p>
+
+    <p>Selected data is available for inspection in the <a href="#data-files">data files table</a> below.</p>
+
+    <div class="list-table" id="data-files">
+      <table>
+        <thead>
+          <tr>
+            <th>File name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="./data/static_data_redacted.csv">static_data_redacted.csv</a></td>
+            <td>Static data listing nodes (redacted)</td>
+          </tr>
+          <tr>
+            <td><a
+                href="./data/65cad86c1eacd861b217e7a7-65d2bb6e91885514259b6bf8-1-1733275646289(1)-normalised.csv">65cad86c1eacd861b217e7a7-65d2bb6e91885514259b6bf8-1-1733275646289(1)-normalised.csv</a>
+            </td>
+            <td>Example raw data</td>
+          </tr>
+          <tr>
+            <td><a href="./data/losant_normalised_store.csv">losant_normalised_store.csv</a></td>
+            <td>Collated processed data</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="robustness" name="robustness">Robustness</h3>
+
+    <p>The nodes were unaffected by severe weather and flooding. When knocked over by harvesters,
+      the poles were easily replaced in position, without any data loss.
+    </p>
+
+    <h3 id="data-loss-events" name="data-loss-events">Data Loss Events</h3>
+
+    <p>Substantial amounts of data were lost because of failures outside the LoRaWAN network.</p>
+
+    <dl>
+      <dt><b>Gateway power outages.</b></dt>
+      <dd>Environmental problems such as flooding, storms and local infrastructure failures disrupted power supply.
+        Although the sensor nodes continued to function and to transmit data, the gateway was offline and unable to
+        receive it.
+      </dd>
+      <dt><b>Power system redesigns.</b></dt>
+      <dd>Alterations to the farm's power infrastructure interrupted supply to the LoRaWAN Gateway device.
+        Once again, data was transmitted but not received during these periods.
+      </dd>
+      <dt><b>Licensing and payment issues with the dashboard application.</b></dt>
+      <dd>Compliance, billing and licensing challenges can impact software functionality.
+        In this case, the dashboard application experienced downtime due to expired licenses and billing errors
+        and required re-activation.
+        Since the dashboard application in this deployment is responsible for long-term data storage,
+        this led to long gaps in the data.
+      </dd>
+    </dl>
+
+    <h3>Signal Strength</h3>
+
+    <p>Signal strength was generally good across the deployment area, with Received Signal Strength Indicator (RSSI)
+      values ranging from approximately -120 dBm to -70 dBm. The nodes located closer to the gateway exhibited stronger
+      signal
+      strength, while those at the maximum distance of 1.9 kilometres showed slightly weaker signals, as expected.
+    </p>
+
+    <img src="images/rssi-by-node.png" alt="Signal Strength Plot" style="width:800px;height:auto;">
+    <div class="caption">Figure 14: Signal Strength (RSSI) by Node</div>
+
+    <img src="images/snr-by-node.png" alt="Signal Strength Plot" style="width:800px;height:auto;">
+    <div class="caption">Figure 15: Signal-to-Noise Ratio (SNR) by Node</div>
+
+    <h3>Signal Reliability</h3>
+
+    <p>During periods where no large-scale <a href="#data-loss-events">data loss events</a> (caused by external factors)
+      interrupted the network, the overall network performance remained stable, with consistent data transmission
+      and minimal packet loss.
+      During this time 7.18% of packets were dropped and did not reach the server, potentially creating gaps in the
+      record.
+      Of these gaps, 5.79% were single packets, 0.98% were double packets, and 0.41% contained three or more packets.
+      Details are shown in the table below.
+    </p>
+
+    <div class="list-table" id="packet-loss-stats">
+      <table>
+        <thead>
+          <tr>
+            <th>Gap size (number of packets)</th>
+            <th>Number of occurrences</th>
+            <th>Percentage of total packets</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0 <i>(i.e. no packets dropped)</i></td>
+            <td>48437</td>
+            <td>92.82%</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>3020</td>
+            <td>5.79%</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>513</td>
+            <td>0.98%</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>142</td>
+            <td>0.27%</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>51</td>
+            <td>0.10%</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>20</td>
+            <td>0.04%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>These packet loss statistics indicate that while the LoRaWAN network performed well overall, there were
+      occasional
+      disruptions in data transmission.
+      By using a transmission frequency twice the required data rate, the effective loss rate can be reduced from 7.18%
+      to
+      1.39%, since losses of single packets would not contribute to the overall loss rate.
+    </p>
+
+    <p>However, to address these issues, it would be preferable to implement a more robust error
+      correction mechanism and to optimize the network configuration for better performance.
+      Periodic monitoring of the signal, whereby the network application returns a checksum for the last N packets,
+      alongside adding behaviour to the sensor node whereby the last N packets are retained, and can be re-sent if
+      requested,
+      should be able to completely eliminate low-level data loss in future deployments.
+    </p>
+
+    <p>Both these approaches will be applied in the next phase of the project.</p>
+
+    <h3>Battery life</h3>
+
+    <p>The sensor nodes were designed to operate for 5-6 years on a single set of batteries, based on the low power
+      consumption of the Dragino SN50v3-LB platform and the infrequent data transmission intervals.
+      Over the 18 months of operation, battery levels remained stable, with no significant drop in voltage observed.
+      This indicates that the nodes are functioning within their expected power consumption parameters and should
+      continue to operate effectively for the projected lifespan.</p>
+
+    <p>It is notable that three of the four nodes showed no measurable drop in voltage over the 18 months of use,
+      offering the possibility of significantly longer battery life.
+    </p>
+
+    <img src="images/battery-level-over-time.png" alt="Battery Voltage Plot" style="width:800px;height:auto;">
+    <div class="caption">Figure 16: Battery Voltage over Time</div>
+
+    <h3>Discussion</h3>
+
+    <p>The deployment of the LoRaWAN sensor network on the sugarcane farm has been successful, with sensor nodes
+      transmitting data reliably to the gateway over distances of up to 1.9 kilometres. The real-time monitoring
+      capabilities provided by the dashboard application can therefore enable farmers to make informed decisions
+      regarding irrigation and resource management.</p>
+
+    <p>Preliminary analysis of the collected data indicates that the LoRaWAN network is performing well, with minimal
+      data loss and consistent signal strength across the deployment area. The flexible pole mounting system has proven
+      effective in maintaining line-of-sight communication, even in dense sugarcane growth.</p>
+
+    <p>Overall, the LoRaWAN-based IoT solution has demonstrated its potential to enhance sustainability and efficiency
+      in sugarcane farming, providing a scalable and cost-effective approach to environmental monitoring.</p>
+
+  </div>
+
+  <div id="Conclusion" name="Conclusion" class="section">
+    <h2>Conclusion</h2>
+
+    <p>Preliminary results indicate that the LoRaWAN system not only simplifies deployment and operation but also
+      significantly enhances the precision of monitoring essential agricultural parameters, while maintaining privacy.
+      This innovative approach improves farmers’ ability to manage resources sustainably, optimize crop yields, reduce
+      run-off, and increase resilience to climate variability.
+    </p>
+
+    <p>Our findings demonstrate the potential of LoRaWAN technology as a scalable and sustainable solution for modern
+      agriculture, promoting better resource management practices and facilitating a practical response to the urgent
+      need
+      for climate-smart agricultural systems.
+    </p>
+
+    <p>Further work is planned, including a wider range of sensor types, and time
+      lapsed video data, analysed locally (on the node) using machine learning.</p>
 
 </body>
 
