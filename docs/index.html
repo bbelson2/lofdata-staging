@@ -63,6 +63,10 @@
           <li><a href="#lorawan_gateway">LoRaWAN Gateway</a></li>
           <li><a href="#lorawan_sensor_nodes">LoRaWAN Sensor Nodes</a></li>
           <li><a href="#deploying_sensors">Sensor Deployment</a></li>
+          <li><a href="#connect_to_network">Connecting to the LoRaWAN Network</a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
         </ul>
       </li>
       <li><a href="#Results">Results and Discussion</a></li>
@@ -202,7 +206,8 @@
           href="https://www.dragino.com/products/lora-lorawan-end-node/item/260-sn50v3-lb-ls.html"
           target="_blank">Dragino
           SN50v3-LB platform</a>, chosen for its durability, long battery life, and
-        compatibility with LoRaWAN networks. Each sensor node was equipped with temperature and humidity sensors to
+        compatibility with LoRaWAN networks, and also for its relatively long product life and relatively
+        high-quality support. Each sensor node was equipped with temperature and humidity sensors to
         monitor environmental conditions within the sugarcane fields.</p>
 
       <img src="images/SN50v3-LB-20.jpg" alt="LoRaWAN Sensor Node" style="width:600px;height:auto;">
@@ -231,7 +236,7 @@
         of 3.5 meters above ground level. This height was chosen to provide a clear line-of-sight for communication with
         the gateway, overcoming the challenges posed by dense sugarcane growth.</p>
 
-      <img src="images/sensor_node_pole_mount_anno.jpg" alt="Sensor Node Pole Mount" style="width:600px;height:auto;">
+      <img src="images/sensor_node_pole_mount.jpg" alt="Sensor Node Pole Mount" style="width:600px;height:auto;">
       <div class="caption">Figure 8: Sensor Node Mounted on PVC Pole</div>
 
       <p>The flexible poles were designed to break away safely if struck by farm machinery, minimizing the risk of
@@ -248,7 +253,7 @@
             <tr>
               <th>Component</th>
               <th>URL</th>
-              <th>Cost (AUD)</th>
+              <th style="text-align:right">Cost (AUD)</th>
             </tr>
           </thead>
           <tbody>
@@ -256,53 +261,53 @@
               <td>LoRaWAN Sensor Node</td>
               <td><a href="https://shop.dragino.com/index.php?rt=product/product&product_id=181" target="_blank">Dragino
                   SN50v3-LB</a></td>
-              <td>69.73</td>
+              <td style="text-align:right">69.73</td>
             </tr>
             <tr>
               <td>Temperature and Humidity Sensor</td>
               <td><a href="https://www.aliexpress.com/item/1005005142437608.html" target="_blank">SHT31</a></td>
-              <td>3.89</td>
+              <td style="text-align:right">3.89</td>
             </tr>
             <tr>
               <td>PVC Pipe 50mm x 6m (3.5m per pole)</td>
               <td><a href="https://www.bunnings.com.au/holman-50mm-x-6m-pvc-dwv-pipe_p4770352" target="_blank">Holman
                   50mm x 6m PVC DWV Pipe</a></td>
-              <td>18</td>
+              <td style="text-align:right">18</td>
             </tr>
             <tr>
               <td>50mm PVC Coupling</td>
               <td><a href="https://www.bunnings.com.au/holman-50mm-pvc-dwv-straight-coupling_p4756318"
                   target="_blank">Holman 50mm PVC DWV Coupling</a></td>
-              <td>2.50</td>
+              <td style="text-align:right">2.50</td>
             </tr>
             <tr>
               <td>2.4m Star Picket</td>
               <td><a href="https://www.bunnings.com.au/jack-240cm-black-premium-ultrapost_p3041483" target="_blank">Jack
                   240cm Black Premium Ultrapost</a></td>
-              <td>21.94</td>
+              <td style="text-align:right">21.94</td>
             </tr>
             <tr>
               <td>75mm Bolts And Nuts (4 per pole)</td>
               <td><a
                   href="https://www.bunnings.com.au/zenith-m8-x-75mm-hot-dip-galvanised-hex-head-bolts-and-nuts-25-pack_p2260594?productName=zenith-m8-x-75mm-hot-dipped-galvanised-hex-head-bolts-and-nuts-25-pack&pid=2260594"
                   target="_blank">ZENITH 8 x 75mm Hot Dip Galvanised Hex Head Bolts And Nuts - 25 Pack</a></td>
-              <td>3.30</td>
+              <td style="text-align:right">3.30</td>
             </tr>
             <tr>
               <td>3d-printed Mounting Bracket</td>
               <td><a href="https://blog.prusa3d.com/how-to-calculate-printing-costs_38650/" target="_blank">How to
                   calculate 3D printing costs?</a> </td>
-              <td>1.91</td>
+              <td style="text-align:right">1.91</td>
             </tr>
             <tr>
-              <td>Total (excluding sensor node):</td>
+              <td>Total (excluding sensor &amp; node):</td>
               <td></td>
-              <td>51.54</td>
+              <td style="text-align:right">47.65</td>
             </tr>
             <tr>
-              <td>Total (including sensor node):</td>
+              <td>Total (including sensor &amp; node):</td>
               <td></td>
-              <td>121.27</td>
+              <td style="text-align:right">121.27</td>
             </tr>
           </tbody>
         </table>
@@ -318,9 +323,46 @@
         <li>Marker or pencil for marking drill points</li>
       </ul>
 
-      <p>All tools and parts can be carried conveniently in the back of a standard ute.</p>
-
+      <p>All tools and parts can be carried conveniently in the back of a standard ute.
+        The process of deployment takes a few minutes per pole:</p>
+      <ol>
+        <li>Drive the post into the ground using a post driver.</li>
+        <li>Attach the sensor node to the pole using the mounting bracket.</li>
+        <li>Attach the pole to the base using bolts and nuts.</li>
+        <li>Secure all connections and ensure the sensor is properly positioned.</li>
+      </ol>
+      <img src="images/deployment-photos.jpg" alt="Sensor Deployment Photos" style="width:600px;height:auto;">
+      <div class="caption">Figure 9: Sensor Deployment</div>
     </div>
+
+    <div id="connect_to_network" name="connect_to_network" class="subsection">
+      <h3>Connecting to the LoRaWAN Network</h3>
+      <p>An Android phone app was used to register each node.
+        The app provides a simple and user-friendly interface for a non-technical user to connect the node
+        with the various software applications and platforms that need to process its data:</p>
+      <ul>
+        <li>LoRaWAN Network Server (The Things Stack)</li>
+        <li>Cloud Data Platform (Losant)</li>
+        <li>Mobile App (custom monitoring app for farmers)</li>
+      </ul>
+
+      <img src="images/registration_app.png" alt="Android App Registration" style="width:600px;height:auto;">
+      <div class="caption">Figure 10: Android App Registration</div>
+
+      <p>The app guides the user through a single-step registration process, and provides the following functionality:
+      </p>
+
+      <ul>
+        <li>Use camera to scan QR codes on the sensor nodes for easy registration.</li>
+        <li>Notes the precise location of the node using the device's GPS functionality.</li>
+        <li>Allows the user to add any further notes or information about the node as needed.</li>
+        <li>Registers the node with the LoRaWAN network using the gateway's management interface.</li>
+        <li>If the Internet network is inaccessible, the app allows for offline registration and later synchronization.
+        </li>
+      </ul>
+
+      <p>Once deployed, the node immediately begins transmitting data to the gateway,
+        which relayed the information to the cloud platform for real-time monitoring and analysis.</p>
 
 
 </body>
