@@ -84,3 +84,11 @@
     font-size: 14px;
     margin-bottom: 15px;
   }
+
+  .section dt {
+    font-weight: bold;
+  }
+
+  .section dd {
+    margin-left: 20px;
+  }
