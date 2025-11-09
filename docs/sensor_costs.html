@@ -1,0 +1,180 @@
+<html>
+<header>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoRaWAN Network Overview</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Icon fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</header>
+
+<body>
+
+  <div id="title">
+    <h1>Sensor node costs</h1>
+  </div>
+
+  <div id="overview">
+    <h2>Sensor node bill-of-materials</h2>
+    <p>There are many different types of sensors that may be useful in agricultural IoT applications.
+      A sample list is <a href="#sensor-device-costs">provided below</a>.</p>
+    <p>Aside from the sensors, a sensor node needs to provide the following functionality and characteristics:</p>
+    <ul>
+      <li>LoRaWAN communication capability (radio, protocol stack)</li>
+      <li>Microcontroller to read sensors, manage communications, and control power modes</li>
+      <li>Power source, typically battery-based for field nodes</li>
+      <li>Enclosure suitable for outdoor use (e.g., IP65/66 rated)</li>
+      <li>Connectors or interfaces for the sensors (wired or wireless)</li>
+      <li>Low power consumption to maximise battery life</li>
+    </ul>
+
+    <p>Typical costs for a simple LoRaWAN sensor node (excluding the sensor(s) themselves) are approximately as follows:
+    </p>
+
+    <div class="list-table" id="node-bom-costs">
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Unit price (ex-GST)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dragino LA66 LoRaWAN module</td>
+            <td>32-bit @48 MHz, 256 KB Flash, 64 KB RAM; has I-PEX and pad for antenna. Licensed and permitted for
+              Austrlian use.</td>
+            <td>$19.00</td>
+          </tr>
+          <tr>
+            <td>ER26500 + SPC1520 battery pack (8.5 Ah, 3.6 V Li-SOCl₂ + pulse cap)</td>
+            <td>Power supply combination suitable for outdoor nodes</td>
+            <td>$35.00</td>
+          </tr>
+          <tr>
+            <td>Outdoor polycarbonate enclosure (IP65/66), ~115×65×40 mm</td>
+            <td>Typical small IP65/66 PC box (Jaycar example $14.95 inc ≈ $13.59 ex)</td>
+            <td>$13.59</td>
+          </tr>
+          <tr>
+            <td>IP68 cable gland, M12 (3–6.5 mm)</td>
+            <td>1 pc out of a 2-pack ($4.95 inc → $2.25 ex per gland)</td>
+            <td>$2.25</td>
+          </tr>
+          <tr>
+            <td>Waterproof SMA bulkhead to I-PEX (U.FL) pigtail, IP67</td>
+            <td>For antenna feedthrough/seal</td>
+            <td>$6.41</td>
+          </tr>
+          <tr>
+            <td>915 MHz LoRa whip antenna, SMA male</td>
+            <td>Example Abracon 3.5 dBi knuckle</td>
+            <td>$12.43</td>
+          </tr>
+          <tr>
+            <td>5.08 mm pluggable screw terminal (e.g., 4-way)</td>
+            <td>For S1/S2 style sensor I/O</td>
+            <td>$3.38</td>
+          </tr>
+          <tr>
+            <td>JST-XH-2P header + housing + crimps</td>
+            <td>Battery connector to PCB</td>
+            <td>$0.50</td>
+          </tr>
+          <tr>
+            <td>Ultra-low-IQ 3.3 V LDO (e.g., MCP1700-3302)</td>
+            <td>From 3.6 V Li-SOCl₂ to 3.3 V rail</td>
+            <td>$1.00 (est.)</td>
+          </tr>
+          <tr>
+            <td>Protection & passives pack</td>
+            <td>TVS (ESD), reverse-polarity diode, resistors, caps</td>
+            <td>$3.00 (est.)</td>
+          </tr>
+          <tr>
+            <td>2-layer PCB (~50×50 mm, small-run amortised)</td>
+            <td>JLC/PCBWay type cost per board</td>
+            <td>$1.00 (est.)</td>
+          </tr>
+          <tr>
+            <td>Total:</td>
+            <td></td>
+            <td>$97.56 (est.)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The table contains only the material and component costs, and excludes the cost of assembly,
+        testing, certification and support.</p>
+
+      <p>This compares with a purchase cost of between AUD 69.73 and AUD 77.99 for a pre-built sensor node, assembled,
+        tested and fully
+        supported:
+        the <a href="https://www.dragino.com/products/lora-lorawan-end-node/item/260-sn50v3-lb-ls.html"
+          target="_blank">Dragino
+          SN50v3-LB platform</a>.</p>
+    </div>
+
+
+    <div class="content">
+      <h2>Typical sensor device costs</h2>
+      <p>
+        The table below provides an overview of common sensors used in agricultural IoT applications, along with their
+        typical cost ranges.
+      </p>
+    </div>
+
+    <div class="list-table" id="sensor-device-costs">
+      <table>
+        <thead>
+          <tr>
+            <th>Sensor Type</th>
+            <th>Description</th>
+            <th>Typical Cost Range (AUD)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Soil Moisture Sensor</td>
+            <td>Measures the volumetric water content in soil.</td>
+            <td>$15 - $150</td>
+          </tr>
+
+          <tr>
+            <td>Temperature Sensor</td>
+            <td>Monitors ambient temperature.</td>
+            <td>$7.50 - $75</td>
+          </tr>
+
+          <tr>
+            <td>Humidity Sensor</td>
+            <td>Measures the relative humidity of the air.</td>
+            <td>$7.50 - $75</td>
+          </tr>
+
+          <tr>
+            <td>pH Sensor</td>
+            <td>Determines the acidity or alkalinity of soil or water.</td>
+            <td>$30 - $225</td>
+          </tr>
+
+          <tr>
+            <td>Nutrient Sensor</td>
+            <td>Analyzes soil nutrient levels (e.g., nitrogen, phosphorus, potassium).</td>
+            <td>$75 - $450</td>
+          </tr>
+
+          <tr>
+            <td>Light Sensor</td>
+            <td>Measures light intensity for photosynthesis monitoring.</td>
+            <td>$15 - $150</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+</body>
+
+</html>

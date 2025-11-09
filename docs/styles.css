@@ -1,0 +1,86 @@
+  body {
+    font-family: Calibri, Arial, sans-serif;
+    margin: 20px;
+  }
+
+  #title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  #authors {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  #details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  #details th,
+  #details td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  #contents ul {
+    list-style-type: none;
+    padding-left: 20;
+  }
+
+  #contents li {
+    margin-bottom: 5px;
+  }
+
+  #contents li ul {
+    list-style-type: none;
+    padding-top: 5px;
+    padding-left: 20;
+  }
+
+  h1 {
+    color: #000000;
+    margin-bottom: 5px;
+  }
+
+  h2 {
+    color: #000000;
+    margin-top: 20px;
+  }
+
+  p {
+    text-align: justify;
+    margin-bottom: 10px;
+  }
+
+  .list-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  .list-table th,
+  .list-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  #network-features ul {
+    /* list-style-type: none; */
+    padding-left: 0;
+    margin-left: 15px;
+  }
+
+  .caption {
+    caption-side: bottom;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }

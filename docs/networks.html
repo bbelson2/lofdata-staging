@@ -1,0 +1,200 @@
+<html>
+<header>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoRaWAN Network Overview</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Icon fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</header>
+
+<body>
+  <div id="title">
+    <h1>Network Overview</h1>
+  </div>
+
+  <div class="content">
+    <p>
+      Selecting the right network technology is crucial for effective agricultural IoT deployments. Various
+      options exist, each with its own strengths and weaknesses. The table below summarizes key network types,
+      highlighting their advantages and disadvantages in the context of smart farming applications.
+    </p>
+  </div>
+
+  <div class="list-table" id="network-features">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th><i class="fa-solid fa-square-plus" aria-hidden="true" style="color: rgb(4, 119, 4);"></i> Advantages
+          </th>
+          <th><i class="fa-solid fa-square-minus" aria-hidden="true" style="color: rgb(179, 12, 12);"></i>
+            Disadvantages</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ethernet</td>
+          <td>Wired local network connection using twisted‑pair or fibre cables.</td>
+          <td>
+            <ul>
+              <li>High reliability and speed (100 Mbps–1 Gbps+)</li>
+              <li>Low latency and low interference</li>
+              <li>Secure and stable</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Requires cabling — costly and impractical across large fields</li>
+              <li>Limited mobility</li>
+              <li>Vulnerable to cable damage from weather or machinery</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Wi‑Fi</td>
+          <td>Wireless LAN based on IEEE 802.11 for short–medium range links (~100 m).</td>
+          <td>
+            <ul>
+              <li>High data rates (tens to hundreds of Mbps)</li>
+              <li>Easy integration with consumer devices</li>
+              <li>Low cost hardware</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>High power consumption</li>
+              <li>Limited range and coverage in open farms</li>
+              <li>Susceptible to interference and dropouts</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Cellular (4G / 5G)</td>
+          <td>Public mobile networks offering wide‑area connectivity via licensed spectrum.</td>
+          <td>
+            <ul>
+              <li>Very wide coverage through carriers</li>
+              <li>High throughput and reliability (where available)</li>
+              <li>Enables direct cloud connectivity</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Recurring data‑plan costs</li>
+              <li>Moderate–high power usage</li>
+              <li>Coverage may be poor in remote rural areas</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>NB‑IoT (Narrowband IoT)</td>
+          <td>Cellular LPWAN using narrowband channels within licensed spectrum (LTE family).</td>
+          <td>
+            <ul>
+              <li>Excellent penetration (indoor/underground)</li>
+              <li>Long range (up to ~10 km)</li>
+              <li>Very low power consumption</li>
+              <li>Operator support</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Recurring data‑plan costs</li>
+              <li>Low data rates (kbps)</li>
+              <li>Dependent on carrier deployment</li>
+              <li>Higher latency for some use cases</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Bluetooth Low Energy (BLE)</td>
+          <td>Short‑range personal area network in 2.4 GHz for low‑power devices.</td>
+          <td>
+            <ul>
+              <li>Very low power consumption</li>
+              <li>Widely supported by smartphones</li>
+              <li>Good for wearable/handheld sensors</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Very short range (~10–50 m)</li>
+              <li>Limited device count and topology</li>
+              <li>Requires a gateway for long‑range backhaul</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Zigbee / Z‑Wave</td>
+          <td>Mesh networking protocols for low‑power sensors (Zigbee = 2.4 GHz, Z‑Wave ≈ 900 MHz).</td>
+          <td>
+            <ul>
+              <li>Low power and self‑healing mesh</li>
+              <li>Mature ecosystem for home/localized monitoring</li>
+              <li>Good for greenhouses, barns, small clusters</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Short‑to‑medium range per hop (&lt;100 m)</li>
+              <li>Limited bandwidth</li>
+              <li>Complex setup and management for large deployments</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Satellite</td>
+          <td>Communication via LEO/GEO satellites for global coverage.</td>
+          <td>
+            <ul>
+              <li>Works anywhere on Earth</li>
+              <li>No reliance on local infrastructure</li>
+              <li>Useful for extremely remote or mobile assets</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>High hardware and airtime costs</li>
+              <li>High latency</li>
+              <li>Typically higher power requirements</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>LoRaWAN</td>
+          <td>Long‑range, low‑power wide‑area network using unlicensed sub‑GHz spectrum.</td>
+          <td>
+            <ul>
+              <li>Very low power and long range (2–15 km typical)</li>
+              <li>Open standard and low‑cost gateways</li>
+              <li>Ideal for sparse, battery‑powered sensors</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Low data rate and limited payload size</li>
+              <li>Duty‑cycle and regional regulatory restrictions</li>
+              <li>Requires gateway coverage or local infrastructure</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+
+
+</body>
+
+</html>

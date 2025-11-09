@@ -1,69 +1,20 @@
 <html>
 <header>
-  <style>
-    #title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    #authors {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    #details table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
-
-    #details th,
-    #details td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    #contents ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    #contents li {
-      margin-bottom: 5px;
-    }
-
-    h2 {
-      color: #1623d6;
-      margin-top: 20px;
-    }
-
-    p {
-      text-align: justify;
-      margin-bottom: 10px;
-    }
-
-    #network-features table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-
-    #network-features th,
-    #network-features td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-      vertical-align: top;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deploying LoRaWAN in Sugarcane Farming</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Icon fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </header>
 
 <body>
   <div id="title">
     <h1>Deploying LoRaWAN-based IoT Solutions for Enhanced Sustainability and Efficiency in Sugarcane Farming</h1>
+  </div>
+  <div id="subtitle">
+    <h2>Project Notes</h2>
   </div>
 
   <div id="details">
@@ -93,26 +44,46 @@
         </tr>
         <tr>
           <th rowspan="1">Poster Number:</th>
-          <td>131</td>
+          <td><a href="131-Bruce Belson.pdf" target="_blank">131</a></td>
       </tbody>
     </table>
   </div>
 
   <div id="contents">
-    <h2>Contents:</h2>
+    <h2>Contents</h2>
     <ul>
-      <li><a href="131-Bruce Belson.pdf" target="_blank">Poster</a></li>
       <li><a href="#Abstract">Abstract</a></li>
-      <li><a href="#Introduction">Introduction</a></li>
-      <li><a href="#Methodology">Methodology</a></li>
+      <li><a href="#Introduction">Introduction</a>
+        <ul>
+          <li><a href="#LoRaWAN">LoRaWAN</a></li>
+        </ul>
+      </li>
+      <li><a href="#Methodology">Methodology</a>
+        <ul>
+          <li><a href="#lorawan_gateway">LoRaWAN Gateway</a></li>
+          <li><a href="#lorawan_sensor_nodes">LoRaWAN Sensor Nodes</a></li>
+          <li><a href="#deploying_sensors">Sensor Deployment</a></li>
+        </ul>
+      </li>
       <li><a href="#Results">Results and Discussion</a></li>
       <li><a href="#Conclusion">Conclusion</a></li>
       <li><a href="#References">References</a></li>
     </ul>
   </div>
 
-  <div id="Abstract" name="Abstract">
-    <h2>Abstract:</h2>
+  <div id="pages">
+    <h2>Pages</h2>
+    <ul>
+      <li><a href="131-Bruce Belson.pdf" target="_blank">Poster</a></li>
+      <li><a href="networks.html">Network Overview</a></li>
+      <li><a href="lorawan.html">LoRaWAN Overview</a></li>
+      <li><a href="sensor_costs.html">Sensor Node Costs</a></li>
+    </ul>
+  </div>
+
+
+  <div id="Abstract" name="Abstract" class="section">
+    <h2>Abstract</h2>
 
     <p>Efficient water management and real-time environmental monitoring are crucial to achieving sustainable
       agriculture, enhancing water quality, and responding to climate-related challenges, especially in
@@ -145,8 +116,8 @@
 
   </div>
 
-  <div id="Introduction" name="Introduction">
-    <h2>Introduction:</h2>
+  <div id="Introduction" name="Introduction" class="section">
+    <h2>Introduction</h2>
     <p>Sugarcane farming is a significant agricultural activity in Australia, particularly in Queensland. However,
       traditional farming practices often lead to inefficient water usage and environmental degradation. The
       integration of IoT technologies, specifically LoRaWAN, offers a promising solution to these challenges by
@@ -155,41 +126,202 @@
     <p>By leveraging the capabilities of LoRaWAN, farmers can gain valuable insights into soil moisture levels, weather
       conditions, and crop health, allowing for more precise irrigation and resource management.</p>
 
-    <h3>LoRaWAN</h3>
-    <p>LoRaWAN (Long Range Wide Area Network) is a low-power, wide-area networking protocol designed for IoT devices.
-      It enables long-range communication with minimal power consumption, making it ideal for agricultural applications
-      where devices may be spread over large areas and require extended battery life.</p>
+    <div id="LoRaWAN" name="LoRaWAN" class="subsection">
+      <h3>LoRaWAN</h3>
+      <p>LoRaWAN (Long Range Wide Area Network) is a low-power, wide-area networking protocol designed for IoT devices.
+        It enables long-range communication with minimal power consumption, making it ideal for agricultural
+        applications
+        where devices may be spread over large areas and require extended battery life.</p>
+
+      <p>For more details see <a href="networks.html">Network Overview</a> and <a href="lorawan.html">LoRaWAN
+          Overview</a>.</p>
+    </div>
+
+  </div>
+
+  <div id="Methodology" name="Methodology" class="section">
+    <h2>Methodology</h2>
+    <p>The study involved the deployment of LoRaWAN sensor nodes across a sugarcane farm located on the Atherton
+      Tablelands. The sensor nodes were based on Dragino SN50v3-LB units, equipped with temperature and humidity
+      sensors, and mounted on flexible PVC poles at a height of 3.5 meters to ensure optimal line-of-sight
+      communication.</p>
+
+    <p>A MultiTech Conduit® IP67 Base Station served as the central gateway, receiving data from the sensor nodes and
+      transmitting it to a cloud-based platform for real-time monitoring via a smartphone application.</p>
+
+    <p>Data collected included temperature, humidity, and signal strength metrics, which were analyzed to assess the
+      performance and reliability of the LoRaWAN network in the agricultural setting.</p>
+
+    <div id="lorawan_gateway" name="lorawan_gateway" class="subsection">
+      <h3>LoRaWAN Gateway</h3>
+      <p>The <a href="https://multitech.com/all-products/cellular/cellular-gateways/conduit-ip67-base-station/"
+          target="_blank">
+          MultiTech Conduit® IP67 Base Station</a> was selected for its robust design and reliable performance in
+        outdoor
+        environments. The gateway was configured and tested off-site. It was set to operate on the appropriate frequency
+        band for Australia (915 MHz) and optimized for maximum coverage across the sugarcane farm.
+        The gateway software was configured to allow remote management via secure connection.
+      </p>
+
+      <img src="images/gateway_with_backplate_anno.jpg" alt="LoRaWAN Gateway" style="width:600px;height:auto;">
+      <div class="caption">Figure 1: MultiTech Conduit® IP67 Base Station LoRaWAN Gateway</div>
+
+      <img src="images/gateway_aerial_anno.png" alt="LoRaWAN Gateway" style="width:600px;height:auto;">
+      <div class="caption">Figure 2: Gateway Aerial Connections</div>
+
+      <p>The selected installation site took advantage of an existing power pole, located next to a small pump shed.
+        The area around the pump shed is clear of trees and other line-of-sight interruptions.
+        The pole currently supports a Long-Range Outdoor Wireless Bridge, providing high bandwidth connectivity to the
+        farm's main network.</p>
+
+      <img src="images/gateway_existing_location_anno.jpg" alt="Gateway Location" style="width:600px;height:auto;">
+      <div class="caption">Figure 3: LoRaWAN Gateway Location</div>
+
+      <p>This version of the gateway is powered using Power-over-Ethernet (PoE).
+        Because of this, it does not require a separate power supply and can be easily installed in locations without
+        access to traditional power outlets. However, it does require a compatible PoE injector or switch to provide
+        power over the Ethernet cable if the supplied Ethernet connection does not support PoE. In this case, a PoE
+        injector (Nextech YN8040) was used to ensure proper power delivery.</p>
+
+      <img src="images/YN8040-gigabit-poe-injectorImageMain-515.jpg" alt="PoE Injector"
+        style="width:600px;height:auto;">
+      <div class="caption">Figure 4: Nextech YN8040 PoE Injector</div>
+
+      <p>The gateway aerial was mounted on the existing power pole, and connected to the gateway via a 10m coaxial
+        cable.
+        The gateway itself was fixed to the interior wall of the pump shed, next to the power pole,
+        and connected to the farm's main network via Ethernet connection using the wireless bridge.</p>
+
+      <img src="images/gateway_pump_shed.jpg" alt="Pump Shed" style="width:600px;height:auto;">
+      <div class="caption">Figure 5: Pump Shed Interior</div>
+    </div>
+
+    <div id="lorawan_sensor_nodes" name="lorawan_sensor_nodes" class="subsection">
+      <h3>LoRaWAN Sensor Nodes</h3>
+      <p>Sensor nodes were based on the <a
+          href="https://www.dragino.com/products/lora-lorawan-end-node/item/260-sn50v3-lb-ls.html"
+          target="_blank">Dragino
+          SN50v3-LB platform</a>, chosen for its durability, long battery life, and
+        compatibility with LoRaWAN networks. Each sensor node was equipped with temperature and humidity sensors to
+        monitor environmental conditions within the sugarcane fields.</p>
+
+      <img src="images/SN50v3-LB-20.jpg" alt="LoRaWAN Sensor Node" style="width:600px;height:auto;">
+      <div class="caption">Figure 6: LoRaWAN Sensor Node</div>
+
+      <p>The use of these 3rd-party sensor nodes was decided after an analysis of the costs of designing and building
+        our
+        own nodes.
+        See <a href="sensor_costs.html">Sensor node costs</a> for more details.</p>
+      </p>
+
+      <p>We connected a temperature and humidity sensor breakout board (<a
+          href="https://sensirion.com/products/catalog/SHT31-DIS-B" target="_blank">SHT31x</a>) to the LoRaWAN sensor
+        node using the provided connectors, as shown in Fig. 7.</p>
+
+      <img src="images/sensor_node_disassembled_anno.jpg" alt="LoRaWAN Sensor Node" style="width:600px;height:auto;">
+      <div class="caption">Figure 7: Connecting sensors to node</div>
+
+      <p>The device firmware was updated to support the new sensors and ensure proper communication with the LoRaWAN
+        network. See <a href="notes/firmware.md">Firmware notes</a> for more details.</p>
+    </div>
+
+    <div id="deploying_sensors" name="deploying_sensors" class="subsection">
+      <h3>Sensor Deployment</h3>
+      <p>To ensure optimal performance of the LoRaWAN sensor nodes, they were mounted on flexible PVC poles at a height
+        of 3.5 meters above ground level. This height was chosen to provide a clear line-of-sight for communication with
+        the gateway, overcoming the challenges posed by dense sugarcane growth.</p>
+
+      <img src="images/sensor_node_pole_mount_anno.jpg" alt="Sensor Node Pole Mount" style="width:600px;height:auto;">
+      <div class="caption">Figure 8: Sensor Node Mounted on PVC Pole</div>
+
+      <p>The flexible poles were designed to break away safely if struck by farm machinery, minimizing the risk of
+        damage to both the equipment and the sensor nodes.</p>
 
 
-    <div id="network-features">
-      <table>
-        <tr>
-          <th>Network</th>
-          <th>Factors</th>
-        </tr>
-        <tr>
-          <td>Ethernet</td>
-          <td>Wired connection, high speed. Requires in-ground cabling, expensive to deploy, inflexible. Limited range
-            (100m per run.)</td>
-        </tr>
-        <tr>
-          <td>WiFi</td>
-          <td>Wireless connection, moderate range. Higher power consumption, limited range (&lt; 100m), potential
-            interference.</td>
-        </tr>
-        <tr>
-          <td>Cellular networks (4G, 5G)</td>
-          <td>Wireless connection, wide coverage. Higher power consumption, potential latency issues, variable costs.
-          </td>
-        </tr>
-        <tr>
-          <td>LoRaWAN</td>
-          <td>Wireless connection, long range. Low power consumption, suitable for remote areas, limited bandwidth.</td>
-        </tr>
+      <p>The costs for each sensor node deployment were kept low by using readily available materials and components.
+        A list of the components used, along with their costs at the time of purchase, is provided in the table below.
+        Note that these unit costs do not include bulk discounts.</p>
 
-      </table>
+      <div class="list-table" id="sensor-deployment-costs">
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>URL</th>
+              <th>Cost (AUD)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LoRaWAN Sensor Node</td>
+              <td><a href="https://shop.dragino.com/index.php?rt=product/product&product_id=181" target="_blank">Dragino
+                  SN50v3-LB</a></td>
+              <td>69.73</td>
+            </tr>
+            <tr>
+              <td>Temperature and Humidity Sensor</td>
+              <td><a href="https://www.aliexpress.com/item/1005005142437608.html" target="_blank">SHT31</a></td>
+              <td>3.89</td>
+            </tr>
+            <tr>
+              <td>PVC Pipe 50mm x 6m (3.5m per pole)</td>
+              <td><a href="https://www.bunnings.com.au/holman-50mm-x-6m-pvc-dwv-pipe_p4770352" target="_blank">Holman
+                  50mm x 6m PVC DWV Pipe</a></td>
+              <td>18</td>
+            </tr>
+            <tr>
+              <td>50mm PVC Coupling</td>
+              <td><a href="https://www.bunnings.com.au/holman-50mm-pvc-dwv-straight-coupling_p4756318"
+                  target="_blank">Holman 50mm PVC DWV Coupling</a></td>
+              <td>2.50</td>
+            </tr>
+            <tr>
+              <td>2.4m Star Picket</td>
+              <td><a href="https://www.bunnings.com.au/jack-240cm-black-premium-ultrapost_p3041483" target="_blank">Jack
+                  240cm Black Premium Ultrapost</a></td>
+              <td>21.94</td>
+            </tr>
+            <tr>
+              <td>75mm Bolts And Nuts (4 per pole)</td>
+              <td><a
+                  href="https://www.bunnings.com.au/zenith-m8-x-75mm-hot-dip-galvanised-hex-head-bolts-and-nuts-25-pack_p2260594?productName=zenith-m8-x-75mm-hot-dipped-galvanised-hex-head-bolts-and-nuts-25-pack&pid=2260594"
+                  target="_blank">ZENITH 8 x 75mm Hot Dip Galvanised Hex Head Bolts And Nuts - 25 Pack</a></td>
+              <td>3.30</td>
+            </tr>
+            <tr>
+              <td>3d-printed Mounting Bracket</td>
+              <td><a href="https://blog.prusa3d.com/how-to-calculate-printing-costs_38650/" target="_blank">How to
+                  calculate 3D printing costs?</a> </td>
+              <td>1.91</td>
+            </tr>
+            <tr>
+              <td>Total (excluding sensor node):</td>
+              <td></td>
+              <td>51.54</td>
+            </tr>
+            <tr>
+              <td>Total (including sensor node):</td>
+              <td></td>
+              <td>121.27</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The tools required for deployment were limited to the following:</p>
+
+      <ul>
+        <li>Post driver</li>
+        <li>Drill with 8mm and 10mm bits</li>
+        <li>Wrench or spanner for tightening bolts</li>
+        <li>Measuring tape</li>
+        <li>Marker or pencil for marking drill points</li>
+      </ul>
+
+      <p>All tools and parts can be carried conveniently in the back of a standard ute.</p>
 
     </div>
+
 
 </body>
 

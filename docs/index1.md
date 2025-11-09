@@ -1,10 +1,14 @@
 # Deploying LoRaWAN-based IoT Solutions for Enhanced Sustainability and Efficiency in Sugarcane Farming
+
 #### Authors:
 - Bruce Belson, Engineering Department, James Cook University, Cairns
 - Eric Wang, Engineering Department, James Cook University, Cairns
 
 #### Dates: 
 August 2023 - November 2025
+
+#### Conference:
+TropAg 2025 - Poster 131
 
 ## Abstract
 
